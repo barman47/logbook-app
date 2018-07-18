@@ -1,0 +1,22 @@
+<section>
+    <h1>Supervisor Signup</h1>
+    <form name="supervisorRegisterForm" id="supervisorRegisterForm" method="POST" action="register">
+        <div class="inputFields">
+            <label for="supervisorName">Name</label><br>
+            <input type="text" id="supervisorName" class="inputs" name="supervisorName" placeholder="Enter full name" autofocus><br>
+            <span id="supervisorNameErrorMessage">Please provide your name</span>
+        </div>
+        <div class="inputFields">
+            <label for="username">Username</label><br>
+            <input type="text" id="username" class="inputs" name="username" placeholder="Enter a username"><br>
+            <span id="supervisorUsernameErrorMessage">Username must be and contain 5 - 12 characters</span>
+        </div>
+        <div class="inputFields">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" class="inputs" name="password" placeholder="Enter Password"><br>
+            <span id="passwordErrorMessage">Password must alphanumeric and be 8 - 20 characters</span>
+        </div>
+        <button name="submitButton" type="submit">Sign up</button>
+    </form>
+</section>
+        

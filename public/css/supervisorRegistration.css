@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: #f5f5f5;
+}
+
+h1 {
+    margin: 30px 0 20px 50px; 
+    font-size: 40px;
+    font-weight: 200;
+    font-family: "Trebuchet MS";
+    color: rgba(0, 0, 0, 0.8);
+}
+
+form {
+    background-color: #ffffff;
+    width: 300px;
+    height: 80%;
+    margin: 40px auto;
+    padding: 20px 60px;
+    box-shadow: 2px 2px 10px #808080;
+    border-top: 5px solid #007caf;
+}
+
+.inputFields {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 500;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+}
+
+input {
+    width: 300px;
+    height: 25px;
+    padding: 5px;
+    font-family: "Segoe UI", "Agency FB", Arial;
+    font-size: 15px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+    outline: none;
+}
+
+.valid {
+    border: 2px solid #36cc36;
+}
+
+.invalid {
+    border: 2px solid orange;
+}
+
+button {
+    width: 315px;
+    height: 40px;
+    padding: 5px;
+    border: 2px solid #007caf;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 10px; 
+    outline: none;
+}
+
+button:hover {
+    background-color: #007caf;
+    /*background-color: #549bb8;*/
+    color: #ffffff;
+}
+
+span {
+    color: orange;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+    opacity: 0;
+}
+
+span.errorMessage {
+    color:orange;
+    font-size: 13px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 200;
+    opacity: 1;
+}
+
+span.noErrorMessage {
+    color: orange;
+}

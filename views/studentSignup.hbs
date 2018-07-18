@@ -1,0 +1,31 @@
+<section>
+    <h1>New Student Signup</h1>
+    <form name="studentRegisterForm" id="studentRegisterForm" method="POST" action="register">
+        <div class="inputFields">
+            <label for="studentName">Name</label><br>
+            <input type="text" id="studentName" class="inputs" name="studentName" placeholder="Enter full name" autofocus><br>
+            <span id="studentNameErrorMessage">Please provide your name</span>
+        </div>
+        <div class="inputFields">
+            <label for="department">Department</label><br>
+            <input type="text" id="department" class="inputs" name="department" placeholder="Student Department"><br>
+            <span id="departmentErrorMessage">Please provide a valid Department</span>
+        </div>
+        <div class="inputFields">
+            <label for="registrationNumber">Registration Number</label><br>
+            <input type="text" id="registrationNumber" class="inputs" name="registrationNumber" placeholder="e.g. MOUAU/13/26603"><br>
+            <span id="registrationNumberErrorMessage">Please provide a valid Registration Number e.g. MOUAU/13/26603</span>
+        </div>
+        <div class="inputFields">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" class="inputs" name="password" placeholder="Enter Password"><br>
+            <span id="passwordErrorMessage">Password must alphanumeric and be 8 - 20 characters</span>
+        </div>
+        <div class="inputFields">
+            <label for="confirmPassword">Confirm Password</label><br>
+            <input type="password" id="confirmPassword" class="inputs" name="confirmPassword" placeholder="Confirm your passwords"><br>
+            <span id="confirmPasswordErrorMessage">Password mismatch! Please check</span>
+        </div>
+        <button name="submitButton" type="submit">Sign up</button>
+    </form>
+</section>

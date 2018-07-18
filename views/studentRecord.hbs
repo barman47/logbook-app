@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="../css/record.css">
+    </head>
+    <body>
+        <header>
+            <h1>DAILY/WEEKLY RECORD OF ACTIVITIES</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../index.html">Logout</a></li>
+                </ul>
+            </nav>
+            <form id="headerForm" name="hearderForm" method="POST" action="login">
+                <div id="studenNameSection">
+                    <select id="week" name="week">
+                        <option class="options" selected disabled>Select Week</option>
+                        <option class="options">Week 1</option>
+                        <option>Week 2</option>
+                        <option>Week 3</option>
+                        <option>Week 4</option>
+                        <option>Week 5</option>
+                        <option>Week 6</option>
+                    </select>
+                    <span id="mode">Supervisor Logged In</span>
+                    <label for="studentName" id="studentNameLabel">Name: </label>
+                    <span id="studentName">{{studentName}}</span>
+                </div>
+                
+            </form>
+        </header>
+        <section>
+            <table>
+                <form id="mainForm" name="mainForm" method="POST">
+                    <thead>
+                        <tr>
+                            <th id="dayTableHead">DAY</th>
+                            <th id="descriptionTableHead">DESCRIPTION OF ACTIVITIES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label class="dateLabel">Monday*</label></td>
+                            <td>
+                                <textarea id="mondayTextArea" name="mondayTextArea" class="mainTextAreas" placeholder="Work Description......"></textarea>
+                                <span class="noErrorMessage" id="mondayErrorMessage">Please enter a work description</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label class="dateLabel">Tuesday*</label></td>
+                            <td>
+                                <textarea id="tuesdayTextArea" name="tuesdayTextArea" class="mainTextAreas" placeholder="Work Description......"></textarea>
+                                <span class="noErrorMessage" id="tuesdayErrorMessage">Please enter a work description</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label class="dateLabel">Wednesday*</label></td>
+                            <td>
+                                <textarea id="wednesdayTextArea" name="wednesdayTextArea" class="mainTextAreas" placeholder="Work Description......"></textarea>
+                                <span class="noErrorMessage" id="wednesdayErrorMessage">Please enter a work description</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label class="dateLabel">Thursday*</label></td>
+                            <td>
+                                <textarea id="thursdayTextArea" name="thursdayTextArea" class="mainTextAreas" placeholder="Work Description......"></textarea>
+                                <span class="noErrorMessage" id="thursdayErrorMessage">Please enter a work description</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label class="dateLabel">Friday*</label></td>
+                            <td>
+                                <textarea id="fridayTextArea" name="fridayTextArea" class="mainTextAreas" placeholder="Work Description......"></textarea>
+                                <span class="noErrorMessage" id="fridayErrorMessage">Please enter a work description</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label class="dateLabel">Saturday*</label></td>
+                            <td>
+                                <textarea id="fridayTextArea" name="fridayTextArea" class="mainTextAreas" placeholder="Work Description......"></textarea>
+                                <span class="noErrorMessage" id="saturdayErrorMessage">Please enter a work description</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </form>
+            </table>
+        </section>
+        <footer>
+            <form id="footerForm" name="footerForm" method="POST">
+                <div class="footerSections" id="departmentSection">
+                    <label for="departments" id="deptLabel" class="footerLabels">Section/Department Attached *</label>
+                    <select id="departments" class="footerInputs" name="departments">
+                        <option selected disabled>Select</option>
+                        <option>IT</option>
+                        <option>Maintenance</option>
+                        <option>Sales</option>
+                        <option>Education</option>
+                    </select>
+                    <span class="noErrorMessage" id="deptErrorMessage">Please Select a Department</span><br>
+                </div>
+
+                <div class="footerSections" id="weekJobSection">
+                    <label for="weekJob" id="jobLabel" class="footerLabels">Project or Job for the Week *</label>
+                    <input type="text" id="weekJob" name="weekJob" class="footerTextFields footerInputs" placeholder="Job Title for the Week">
+                    <span class="noErrorMessage" id="weekJobErrorMessage">Please Enter a Job Title</span><br>
+                </div>
+
+               <div class="footerSections" id="supervisorCommentSection">
+                    <label id="supervisorCommentLabel" class="footerLabels" for="supervisorComment">Comment by Industry Based Supervisor *</label>
+                    <textarea id="supervisorComment" name="supervisorComment" class="footerInputs" placeholder="Comment here......"></textarea>
+                    <span class="noErrorMessage" id="supervisorCommentErrorMessage">Please enter a comment</span><br>
+               </div>
+
+                <div class="footerSections" id="supervisorNameSection">
+                    <label for="supervisorName" class="footerLabels">Name *</label>
+                    <input type="text" id="supervisorName" class="footerTextFields footerInputs" name="supervisorName" placeholder="Supervisor name">
+                    <span class="noErrorMessage" id="supervisorNameErrorMessage">Please enter your name</span><br>
+                </div>
+
+                <div class="footerSections" id="dateSection">
+                    <label for="date" class="footerLabels">Date *</label>
+                    <input type="date" id="date" name="date" class="footerInputs">
+                    <span class="noErrorMessage" id="dateErrorMessage">Please select a date</span>
+                </div>
+                <button>Submit Record</button>
+            </form>
+        </footer>
+        <footer id="mainFooter">
+            &copy Student Industrial Work Experince Scheme 2018 - All Rights Reserved
+        </footer>
+    </body>
+</html>
