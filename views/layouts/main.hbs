@@ -4,8 +4,16 @@
     <meta charset="utf-8">
     <title>{{title}}</title>
     <link rel="stylesheet" href="{{style}}">
+    <script src="/js/jquery-3.1.1.js"></script>
 </head>
 <body>
+    {{#if success_message}}
+        <p class="success"><strong>{{ success_message }}</strong></p>
+    {{/if}}
+
+    {{#if failure_message}}
+        <p class="failure"><strong>{{ failure_message }}</strong></p>
+    {{/if}}
     {{{body}}}
     <script src="{{script}}"></script>
 </body>

@@ -1,279 +1,224 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: "Trebuchet MS";
 }
 
 body {
+    background-color: #ffffff;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+    grid-gap: 2em;
+    background-color: #ffffff;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    border-bottom: 2px solid #007caf;
+    padding-bottom: 3em;
+    grid-gap: 5em;
     background-color: #f5f5f5;
-    font-family: 'Trebuchet MS', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    max-width: 100vw;
-    overflow-x: hidden;
+    box-shadow: 3px 3px 5px gray;
 }
 
 header {
-    width: 92vw;
-    min-height: 100%;
-    background-color: #ffffff;
-    margin: 30px 30px;
-    padding: 20px;
-    box-shadow: 3px 3px 10px gray;
-    border-radius: 2px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: minmax(70px, auto);
+    padding: 25px 80px;
+    background-color: #f5f5f5;
+    box-shadow: 3px 3px 5px gray;
+    border-bottom: 5px solid #007caf;
 }
 
-#mode {
-    /* position: relative;
-    top: 80px; */
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    letter-spacing: 1px;
-    word-spacing: 2px;
-    color: rgba(0, 0, 0, 0.50);
-    float: left;
-    margin-left: 15px;
-    margin-top: 5px;
+@keyframes changeHeaderColor {
+    from {
+        color: rgba(0, 0, 0, 0.75);
+    }
+    to {
+        color: #007caf;
+        text-shadow: 2px 2px 3px gray;
+    }
 }
 
 h1 {
-    font-size: 300%;
-    font-weight: 100;
-    letter-spacing: -2px;
-    word-spacing: 7px;
-    color: #549bb8;
+    font-weight: 300;
+    font-size: 250%;
+    color: rgba(0, 0, 0, 0.75);
+    cursor: default;
+    transition: color 2s;
+}
+
+h1:hover {
+    color: #007caf;
+}
+
+nav {
+    justify-self: end;
 }
 
 ul {
+    
     list-style-type: none;
-    position: relative;
-    top: -50px;
-    left: 1000px;
 }
 
 li {
-    display: inline-block;
-    margin-left: 15px;
-    font-size: 17px;
+    float: left;
+    margin-left: 20px;
+}
+
+div label {
+    font-weight: bold;
     letter-spacing: 1px;
-    font-weight: 100;
-    font-family: san-serif;
+    color: rgba(0, 0, 0, 0.8);
 }
 
-a:link {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.50);
-}
-
-a:hover {
-    color: #549bb8;
+#studentNameDiv {
+    justify-self: end;    
 }
 
 #week {
-    float: left;
-    margin-left: 10px;
-    width: 120px;
-    height: 30px;
-    padding: 5px;
-    font-family: "Segoe UI";
-}
-
-#week option {
-    background-color: #f5f5f5;
-    box-shadow: 2px 2px 2px #808080;
-}
-
-#studenNameSection {
-    text-align: right;
-    letter-spacing: 1px;
-}
-
-#studentNameLabel {
-    color: rgba(0, 0, 0, 0.80);
-}
-
-.textFields {
-    min-height: 25px;
-    min-width: 300px;
-    padding: 5px;
-    font-size: 15px;
-    letter-spacing: 2px;
-    border-radius: 5px;
-}
-
-section {
-    background-color: #ffffff;
-    margin: 30px 30px;
-    padding: 20px;
-    box-shadow: 3px 3px 10px gray;
-    border-radius: 2px;
-    opacity: 0.85;
-}
-
-table{
-    width: 900px;
-    /*border: 1px solid black; */
-    border-collapse: collapse;
-    margin: 0 auto;
-}
-
-thead{
-    background-color: #549bb8;
-    color: #ffffff;
-}
-
-td {
-    padding: 5px;
-    letter-spacing: 1px;
-}
-
-th {
-    height: 50px;
-    font-size: 20px;
-    font-weight: lighter;
-    letter-spacing: 2px;
-}
-
-.mainTextAreas{
-    width: 400px;
-    height: 60px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #007caf;
     padding: 10px;
-    margin-left: 120px;
+}
+
+#mainSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
+.inputSections {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 2em;
+    grid-auto-rows: minmax(200px, auto);
+    box-shadow: 2px 2px 4px gray;
+    padding: 2em 2em;
+    background-color: #ffffff;
+}
+
+textarea {
     resize: none;
 }
 
-.dateLabel{
-    font-size: 20px;
-    font-weight: lighter;
-    color: rgba(0, 0, 0, 0.70);
+textarea:disabled {
+    background-color: #ffffff;
 }
 
-.noErrorMessage{
-    font-size: 12px;
-    color: #ff0000;
+.mainTextAreas {
+    padding: 10px;
+}
+
+.formButtons {
+    height: 45px;
+    align-self: end;
+    width: 120px;
+    border: 2px solid #007caf;
+    background-color: #ffffff;
+    color: #007caf;
+    cursor: pointer;
+    font-family: "Segoe UI";
+    font-size: 15px;
+}
+
+.formButtons:hover {
+    background-color: #007caf;
+    color: #ffffff;
+    box-shadow: 1px 1px 2px gray;
+}
+
+#department:disabled {
+    background-color: #ffffff;
+    border: 1px solid gray;
+} 
+
+#footerSection {
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 1fr;
+    padding-left: 5em;
+    padding-right: 5em;
 }
 
 .footerSections {
-    height: 100px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 15px;
-    font-family: verdana;
-    margin-bottom: 20px;
-    background-color: #f8f8f8; /*#f5f5f5;*/
-    box-shadow: 5px 5px 5px gainsboro;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 1fr 3fr;
+    justify-items: start;
+    height: 120px;
+    background-color: #ffffff;
+    padding: 2em 2em;
+    box-shadow: 2px 2px 4px gray;
 }
 
-.footerLabels {
-    color: rgba(0, 0, 0, 0.80);
-}
-
-#departments {
-    width: 420px;
-    height: 50px;
-    padding: 5px;
-    margin-left: 120px;
-}
-
-#weekJob {
-    margin-left: 140px;
-}
-
-#weekJobSection {
-
-}
-
-.footerTextFields{
-    width: 400px;
-    height: 30px;
-    padding: 5px;
-    font-size: 15px;
-    font-family: "Trebuchet MS";
-    letter-spacing: 1px;
-}
-
-#supervisorComment{
-    width: 400px;
-    height: 60px;
+.footerTextFields, .footerInputs {
+    width: 450px;
+    height: 25px;
     padding: 10px;
-    resize: none;
-    margin-left: 40px;
 }
 
-#supervisorName {
-    margin-left: 297px;
-    width: 410px;
-}
-
-#supervisorCommentLabel {
-    position: relative;
-    top: -30px;
-}
-
-input[type=date] {
-    width: 150px;
-    height: 30px;
-    padding: 5px;
-    font-size: 15px;
-    font-family: "Trebuchet MS";
+#submitButton{
+    justify-self: center;
+    height: 40px;
+    width: 430px;
+    background-color: #ffffff;
+    border: 1px solid #007caf;
     letter-spacing: 1px;
-    margin-left: 305px;
+    cursor: pointer;
+    font-family: "Segoe UI";
+    font-size: 18px;
+    font-weight: 400;
 }
 
-option {
-    font-size: 15px;
-    font-family: verdana;
+#submitButton:hover {
+    color: #ffffff;
+    background-color: #007caf;
+    box-shadow: 2px 2px 4px gray;
 }
 
-.mainTextAreas, .footerInputs {
-    border: 2px solid #549bb8;
-    border-radius: 5px;
-}
-
-.mainTextAreas:focus, .footerInputs:focus {
-    border: 2px solid skyblue;
-    outline: none;
+hr {
+    color: #ffffff;
 }
 
 footer {
-    background-color: #ffffff;
-    margin: 0 30px;
-    padding: 20px;
-    box-shadow: 3px 3px 10px gray;
-    border-radius: 2px;
-}
-
-button {
-    width: 430px;
-    height: 40px;
-    margin: 50px 0;
-    position: relative;
-    left: 380px;
-    border: 2px solid #549bb8;
-    border-radius: 2px;
-    background-color: #ffffff;
-    letter-spacing: 2px;
-    padding: 5px;
-    font-size: 15px;
-    font-family: verdana;
-    color: rgba(0, 0, 0, 0.80);
-}
-
-button:hover {
-    background-color: #549bb8;
-    color: #ffffff;
-    cursor: pointer;
-    box-shadow: 2px 2px 1px gray;
-}
-
-#mainFooter {
-    width: 100%;
-    background-color:#549bb8;
-    margin: 0;
-    color: #ffffff;
-    padding: 70px 0;
+    background-color: #007caf;
+    height: 50px;
     text-align: center;
+    padding: 5em;
+    color: #ffffff;
     font-size: 18px;
-    letter-spacing: 2px;
-    word-spacing: 5px;
-    font-family: "arial arrow";
+    font-weight: lighter;
+    font-family: "Segoe UI";
+    letter-spacing: 0.2em;
+}
+
+.failure, .success {
+    padding: 10px; 
+    text-align: center;
+    font-family: "Trebuchet MS";
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: 1px solid #6de9c6;
+}
+
+.failure {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
 }
 
 

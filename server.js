@@ -3,12 +3,13 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
-const passport = require('passport');
 const expressValidator = require('express-validator');
-const flash = require('connect-flash');
 const session = require('express-session');
-const config = require('./config/database');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+const passport = require('passport');
 
+const config = require('./config/database');
 const students = require('./routes/students');
 const supervisor = require('./routes/supervisors');
 
@@ -27,17 +28,19 @@ db.once('open', () => {
 
 db.on('error', (err) => {
     console.log(err);
-})
+});
 
 const app = express();
 
 app.use(express.static(publicPath));
+app.use(cookieParser('keyboard cat'));
 app.use(session({
     secret: 'keyboard cat',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized:true
 }));
-app.use(require('connect-flash')());
+
+app.use(flash());
 app.use((req, res, next) => {
     res.locals.messages = require('express-messages')(req, res);
     next();
@@ -58,6 +61,14 @@ app.use(expressValidator({
         };
     }
 }));
+
+// Passport config
+require('./config/passport')(passport);
+
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+//exphbs.registerPartials(__dirname + '/views/partials');
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs'
@@ -68,18 +79,20 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/students', students);
 app.use('/supervisors', supervisor);
 
-// Passport config
-require('./config/passport')(passport);
 
-// Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
+
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.success_message = req.flash('success');
+    res.locals.failure_message = req.flash('failure');
+    next();
+});
 
 app.get('/', (req, res) => {
     res.render('home', {
         title: 'E-Loggbook Home',
         style: 'css/index.css',
-        script: 'js/script.js'
+        script: 'js/script.js',    
     });
 }); 
 

@@ -92,3 +92,21 @@ span.noErrorMessage {
     color: orange;
     opacity: 0;
 }
+
+.failure, .success {
+    padding: 10px; 
+    text-align: center;
+    font-family: "Trebuchet MS";
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: 1px solid #6de9c6;
+}
+
+.failure {
+    color: #a94442;
+    background-color: #f2dede;
+    border: 1px solid #ebccd1;
+}

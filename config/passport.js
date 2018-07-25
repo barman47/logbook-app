@@ -1,38 +1,41 @@
 const LocalStrategy = require('passport-local').Strategy;
 const Student = require('../models/student');
-const config = require('./database');
 const bcrypt = require('bcryptjs');
 
 module.exports = (passport) => {
-    //Local Startegy
-    passport.use(new LocalStrategy((regNo, password, done) => {
-        //Match RegNo
-        let query = {regNo: regNo};
-        Student.findOne(query, (err, student) => {
-            if (err)  throw err; 
+    passport.use(new LocalStrategy({
+        usernameField: "regNo",
+        passwordField: "password",
+        passReqToCallback: true
+      }, function verifyCallback(req, regNo, password, done) {
+            Student.findOne({ regNo: regNo }, function(err, student) {
+            if (err) return done(err);
             if (!student) {
-                return done(null, false, {message: 'No Student found'});
+                return done(null, false, {msg: 'No student found'});
             }
-
-            //Match password
             bcrypt.compare(password, student.password, (err, isMatch) => {
-                if (err) throw err;
-                if (isMatch) {
-                    return done(null, student);
+                if (err) return done(err);
+                if (!isMatch) {
+                    return done(null, false, {msg: 'Incorrect Password'})
                 } else {
-                    return done(null, false, {message: 'Wrong Password'});
+                    return done(null, student);
                 }
             });
         });
     }));
-
-    passport.serializeUser(function(student, done) {
-        done(null, student.id);
+  
+    passport.serializeUser((student, done) => {
+        done(null, student._id);
     });
-      
-    passport.deserializeUser(function(id, done) {
-        Student.findById(id, function(err, student) {
+  
+    passport.deserializeUser((id, done) => {
+        Student.findById(id, (err, student) => {
             done(err, student);
         });
     });
 };
+
+
+
+
+
