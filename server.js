@@ -90,7 +90,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
     res.render('home', {
-        title: 'E-Loggbook Home',
+        title: 'E-Loggbook | Home',
         style: 'css/index.css',
         script: 'js/script.js',    
     });

@@ -92,7 +92,7 @@ router.post('/login', (req, res, next) => {
         }
 
         if (!student) {
-            req.flash('failure', 'No Student found');
+            req.flash('failure', 'Incorrect Registration Number or Password');
             return res.redirect('/');
         } 
         req.logIn(student, (err) => {
