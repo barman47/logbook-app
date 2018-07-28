@@ -1,4 +1,11 @@
 <section>
+    {{#if errors}} 
+        {{#each errors}}
+            <div class="failure">
+                <p>{{this.msg}}</p>
+            </div>
+        {{/each}}
+    {{/if}}
     <h1>Supervisor Signup</h1>
     <form name="supervisorRegisterForm" id="supervisorRegisterForm" method="POST" action="register">
         <div class="inputFields">

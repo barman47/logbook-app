@@ -73,6 +73,36 @@ li {
     margin-left: 20px;
 }
 
+a:link {
+    text-decoration: none;
+    color: purple;
+    font-size: 15px;
+}
+
+a:visited {
+    color: brown;
+}
+
+a:hover {
+    color: #ffa500;
+}
+
+a:active {
+    color: red;
+}
+
+#homeLink {
+    padding: 5px 10px;
+}
+
+#logout {
+    border: 1px solid #007caf;
+    padding: 5px 10px;
+}
+
+#logout:hover {
+    background-color: #ffffff;
+}
 div label {
     font-weight: bold;
     letter-spacing: 1px;
@@ -80,7 +110,22 @@ div label {
 }
 
 #studentNameDiv {
-    justify-self: end;    
+    justify-self: end;
+}
+
+#studentName, #loggedIn {
+    height: 25px; 
+    padding: 10px;
+}
+
+#studentName {
+    color: #007caf;
+    background-color: white;
+}
+
+#loggedIn {
+    color: gray;
+    background-color: #f5f5f5;
 }
 
 #week {

@@ -76,10 +76,9 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
 app.use('/students', students);
 app.use('/supervisors', supervisor);
-
-
 
 app.use(flash());
 app.use((req, res, next) => {

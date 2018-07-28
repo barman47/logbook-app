@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Trebuchet MS";
+    cursor: default;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    background-image: url("/img/dashboardBackground.jpg");
+    background-repeat: repeat;
+}
+
+#mainContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    /* background-color: rgba(245, 245, 245, 0.5); */
+}
+
+nav {
+    background-color:#26a3d6;
+    padding: 30px;
+    box-shadow: 2px 2px 4px gray;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-size: 18px;
+    color: #ffffff;
+}
+#dashboard {
+    color: yellow;
+}
+
+.links {
+    float: left;
+    margin-left: 30px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+a:visited {
+    color: #ffffff;
+}
+
+a:hover {
+    color: #007aac !important;
+    cursor: pointer;
+}
+
+a:active {
+    color: red !important;
+}
+
+#logout {
+    float: right;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    width: 10%;
+    text-align: center;
+}
+
+#logout:hover {
+    background-color: #007aac;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#welcomeText{
+    clear: both;
+    /* background-color: rgba(0, 255, 0, 0.4); */
+    background-color: rgba(87, 142, 190, 0.8);
+    /* color: #005c00; */
+    color: #24639a;
+    text-align: center;
+    justify-self: center;
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#mainItems {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+    grid-auto-rows: minmax(250px, auto);
+}
+
+.items {
+    opacity: 0.8;
+    width: 400px;
+    border-radius: 5px;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.first {
+    justify-self: end;
+}
+
+.second {
+    justify-self: start;
+}
+
+#firstItem {
+    background-color: #5e738b;
+}
+
+#secondItem {
+    background-color: #e26a6a;
+}
+
+#thirdItem {
+    background-color: #8e44ad;
+}
+
+#fourthItem {
+    background-color: #26a69a;
+}
+
+.icons {
+    font-size: 150px !important;
+    /* color: #ffffff; */
+}
+
+.icons:hover {
+    color: #cfcfcf;
+    cursor: pointer;
+}
+
+.icons:active {
+    /* color: #26a69a; */
+    color: orange;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #007caf;
+    height: 50px;
+    text-align: center;
+    padding: 5em;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: lighter;
+    font-family: "Segoe UI";
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}

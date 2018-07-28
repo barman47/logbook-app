@@ -3,14 +3,17 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const moment = require('moment');
+
+let time = moment();
 
 let Student = require('../models/student');
 let StudentRecord = require('../models/record');
-
-router.get('/record', (req, res) => {
-    res.render('studentRecord', {
-        style: '/css/record.css',
-        script: '/js/record.js'
+router.get('/dashboard', (req, res) => {
+    res.render('studentDashboard', {
+        title: 'Dashboard',
+        style:  '/css/studentDashboard.css',
+        script: '/js/studentDashboard.js'
     });
 });
 
@@ -98,12 +101,32 @@ router.post('/login', (req, res, next) => {
         req.logIn(student, (err) => {
             let id = student._id;
             id = mongoose.Types.ObjectId(id);
-            return res.redirect(`/students/studentRecord/${id}`);
+            return res.redirect(`/students/dashboard/${id}`);
         });
     })(req, res, next);
 });
 
+router.get('/dashboard/:id', (req, res) => {
+    let id = req.params.id;
+    let query = {_id: id};
+    time = time.format('h:mma');
+    Student.findOne(query, (err, student) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.render('studentDashboard', {
+            title: 'Student Dashboard',
+            style: '/css/studentDashboard.css',
+            script: '/js/studentDashboard.js',
+            name: student.name,
+            id: student._id, 
+            time: time
+        });
+    });
+});
+
 router.get('/studentRecord/:id', (req, res) => {
+    time = time.format('h:mma');
     StudentRecord.findById(req.params.id, (err, studentRecord) => {
         if (err) {
             throw err;
@@ -114,7 +137,14 @@ router.get('/studentRecord/:id', (req, res) => {
                 script: '/js/record.js',
                 name: studentRecord.name,
                 department: studentRecord.department,
-                dataId: req.params.id
+                id: req.params.id,
+                student: true,
+                monday: studentRecord.monday,
+                tuesday: studentRecord.tuesday,
+                wednesday: studentRecord.wednesday,
+                thursday: studentRecord.thursday,
+                friday: studentRecord.friday,
+                time: time
             });
         }
     });

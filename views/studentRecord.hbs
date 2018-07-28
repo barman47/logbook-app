@@ -4,8 +4,8 @@
             <h1>DAILY/WEEKLY RECORD OF ACTIVITIES</h1>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">Logout</a></li>
+                    <li id="homeLink"><a href="/students/dashboard/{{id}}">Dashboard</a></li>
+                    <li id="logout"><a href="/">Log out</a></li>
                 </ul>
             </nav>
             <select id="week" name="week">
@@ -18,9 +18,13 @@
                 <option>Week 6</option>
             </select>
             <div id="studentNameDiv">
-                <label for="studentName" id="studentNameLabel">Name: </label>
-                <span id="studentName">{{name}}</span>
-                <span id="mode">{{mode}} Logged In at {{time}}</span>
+                {{#if student}}
+                    {{!-- <label for="studentName" id="studentNameLabel" style="color: #007caf">Name: </label> --}}
+                    <span id="studentName">{{name}}</span><span id="loggedIn">Logged in at {{time}}</span>
+                {{/if}}
+                {{#if supervisor}}
+                    <span id="supervisorName">Supervisor Logged In at {{time}}</span>
+                {{/if}}
             </div>
         </header>
     
@@ -29,31 +33,31 @@
                 <p>DESCRIPTION OF ACTIVITIES</p> --}}
                 <div class="inputSections">
                     <label class="dateLabel">Monday*</label>
-                    <textarea value="{{monday}}" id="mondayTextArea" name="mondayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled></textarea>
+                    <textarea value="mike" id="mondayTextArea" name="mondayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled>{{monday}}</textarea>
                     <button id="mondayEditButton" class="formButtons" name="mondayEditButton">Edit</button>
                 </div>
                 
                 <div class="inputSections">
                     <label class="dateLabel">Tuesday*</label>
-                    <textarea value="{{tuesday}}" id="tuesdayTextArea" name="tuesdayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled></textarea>
+                    <textarea id="tuesdayTextArea" name="tuesdayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled>{{tuesday}}</textarea>
                     <button id="tuesdayEditButton" class="formButtons" name="tuesdayEditButton">Edit</button>
                 </div>
                     
                 <div class="inputSections">
                     <label class="dateLabel">Wednesday*</label>
-                    <textarea value="{{wednesday}}" id="wednesdayTextArea" name="wednesdayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled></textarea>
+                    <textarea id="wednesdayTextArea" name="wednesdayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled>{{wednesday}}</textarea>
                     <button id="wednesdayEditButton" class="formButtons" name="wednesdayEditButton">Edit</button>
                 </div>
     
                 <div class="inputSections">
                     <label class="dateLabel">Thursday*</label>
-                    <textarea value="{{thursday}}" id="thursdayTextArea" name="thursdayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled></textarea>
+                    <textarea id="thursdayTextArea" name="thursdayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled>{{thursday}}</textarea>
                     <button id="thursdayEditButton" class="formButtons" name="thursdayEditButton">Edit</button>
                 </div>
                     
                 <div class="inputSections">
                     <label class="dateLabel">Friday*</label>
-                    <textarea value="{{friday}}" id="fridayTextArea" name="fridayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled></textarea>
+                    <textarea id="fridayTextArea" name="fridayTextArea" class="mainTextAreas" placeholder="Work Description......" disabled>{{friday}}</textarea>
                     <button id="fridayEditButton" class="formButtons" name="fridayEditButton">Edit</button>
                 </div>                
             </section>
@@ -80,18 +84,18 @@
 
                 <div class="footerSections" id="dateSection">
                     <label for="date" class="footerLabels">Date *</label>
-                    <input type="date" id="date" name="date" class="footerInputs">
+                    <input type="text" id="date" name="date" class="footerInputs">
                 </div>
             </section>
 
-            <button id="submitButton" name="submitButton" data-id="{{dataId}}">Submit Record</button>
+            <button id="submitButton" name="submitButton" data-id="{{id}}">Submit Record</button>
         </form>
 
     <footer id="mainFooter">
         <hr>
         <br>
         <br>
-        &copy Student Industrial Work Experince Scheme 2018 - All Rights Reserved
+        &copy Student Industrial Work Experience Scheme 2018 - All Rights Reserved
     </footer>
 </div>
 
