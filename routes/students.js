@@ -6,6 +6,9 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 
 let time = moment();
+time = time.format('h:mma');
+let date = new moment();
+date =  date.format('Do MMMM, YYYY');
 
 let Student = require('../models/student');
 let StudentRecord = require('../models/record');
@@ -89,7 +92,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', (err, student, info) => {
+    passport.authenticate('student', (err, student, info) => {
         if (err) {
             return next(err);
         }
@@ -109,7 +112,6 @@ router.post('/login', (req, res, next) => {
 router.get('/dashboard/:id', (req, res) => {
     let id = req.params.id;
     let query = {_id: id};
-    time = time.format('h:mma');
     Student.findOne(query, (err, student) => {
         if (err) {
             return res.status(500).send(err);
@@ -126,7 +128,7 @@ router.get('/dashboard/:id', (req, res) => {
 });
 
 router.get('/studentRecord/:id', (req, res) => {
-    time = time.format('h:mma');
+    
     StudentRecord.findById(req.params.id, (err, studentRecord) => {
         if (err) {
             throw err;
@@ -144,7 +146,8 @@ router.get('/studentRecord/:id', (req, res) => {
                 wednesday: studentRecord.wednesday,
                 thursday: studentRecord.thursday,
                 friday: studentRecord.friday,
-                time: time
+                time: time,
+                date: date
             });
         }
     });

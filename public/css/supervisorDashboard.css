@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: default;
+}
+
+body, section, nav, header {
+    display: block;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color:#26a3d6;
+    padding: 30px;
+    box-shadow: 2px 2px 4px gray;
+}
+
+#mainLinks {
+    list-style-type: none;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.links {
+    float: left;
+    margin-right: 40px;
+}
+
+#logout {
+    float: right;
+    border: 1px solid #ffffff;
+    padding: 5px 15px;
+    text-align: center;
+}
+
+#logout:hover {
+    background-color: #26a3d6;
+}
+
+#mainLinks a:link {
+    color: #ffffff;
+}
+
+#mainLinks a:visited {
+    color: #ffffff;
+}
+
+#mainLinks a:hover {
+    color: #007caf;
+}
+
+#mainLinks a:active {
+    color: rgb(255, 0, 0);
+}
+
+#welcomeText {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 255, 0, 0.6);
+    color: #ffffff;
+    margin: 50px auto;
+    width: 80%;
+}
+
+section {
+    margin: 50px auto;
+    width: 60%;
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.studentList {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#listHeader {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    color: #26a3d6;
+}
+
+.students {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.studentList {
+    list-style-type: none;
+}
+
+.studentList a:link {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.studentList a:visited {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.studentList a:hover {
+    color: #007caf;
+}
+
+.studentList a:active {
+    color: rgb(255, 0, 0);
+}
+
+footer {
+    margin-top: 20px;
+    margin-bottom: 0px; 
+    background-color: #007caf;
+    height: 50px;
+    text-align: center;
+    padding: 5em;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: lighter;
+    font-family: "Segoe UI";
+    letter-spacing: 0.2em;
+}

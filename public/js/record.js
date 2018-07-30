@@ -76,13 +76,51 @@ formElements[4][0].addEventListener('focusout', function () {
     formElements[4][0].disabled = true;
 }, false);
 
+// $(document).ready(function () {
+//     $('#submitButton').on('click', function (e) {
+
+//         $(this).html('Submitting Record...');
+//         e.preventDefault();
+//         $target = $('#submitButton');
+//         const id = $target.attr('data-id');
+//         const url = `/students/studentRecord/${id}`;
+//         let data = {
+//             mondayTextArea: $('#mondayTextArea').val(),
+//             tuesdayTextArea: $('#tuesdayTextArea').val(),
+//             wednesdayTextArea: $('#wednesdayTextArea').val(),
+//             thursdayTextArea: $('#thursdayTextArea').val(),
+//             fridayTextArea: $('#fridayTextArea').val(),
+//             week: $('#week').val(),
+//             weekJob: $('#weekJob').val(),
+//         };
+//         setTimeout(function () {
+//             $.ajax(url, {
+//                 type: 'PUT',
+//                 data: data
+//             }).done (function () {
+//                 alert('Update Successful');
+//                 let redirect = confirm('You will now be logged out');
+//                 if (redirect === true) {
+//                     window.location.href = '/';
+//                 }
+//                 $('#submitButton').html('Submit Record');
+//             }).fail(function (jqXHR, status) {
+//                 alert('Update Unsucessful. Please Try Again. ' + status);
+//                 $('#submitButton').html('Submit Record');
+//             });
+//         }, 1000);
+//     });
+// });  
+
 // Main form textareas event end
 
 $(document).ready(function () {
     $('#submitButton').on('click', function (e) {
-
-        $(this).html('Submitting Record...');
         e.preventDefault();
+        $(this).html('Submitting Record...');
+        $('.spinner').css('display', 'block');
+        $('.overlay').css('display', 'block');
+        //$('body').css('backgroundColor', 'rgba(255, 255, 255, 0);');
         $target = $('#submitButton');
         const id = $target.attr('data-id');
         const url = `/students/studentRecord/${id}`;
@@ -105,9 +143,13 @@ $(document).ready(function () {
                 if (redirect === true) {
                     window.location.href = '/';
                 }
+                $('.spinner').css('display', 'none');
+                $('.overlay').css('display', 'none');
                 $('#submitButton').html('Submit Record');
             }).fail(function (jqXHR, status) {
                 alert('Update Unsucessful. Please Try Again. ' + status);
+                $('.spinner').css('opacity', 'none');
+                $('.overlay').css('display', 'none');
                 $('#submitButton').html('Submit Record');
             });
         }, 1000);

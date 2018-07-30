@@ -1,18 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
+const mongoose = require('mongoose');
 
 let Supervisor = require('../models/supervisor');
 const path = require('path');
 const publicPath = path.join(__dirname, '../../public/views');
-
-router.get('/login', (req, res) => {
-    res.render('supervisorLogin', {
-        title: 'Supervisor Signup',
-        style: '/css/supervisorLogin.css',
-        script: '/js/supervisorLogin.js'
-    });
-});
 
 router.get('/register', (req, res) => {
     res.render('supervisorSignup', {
@@ -64,7 +58,7 @@ router.post('/register', (req, res) => {
                     if (err) {
                         return console.log(err);
                     } else {
-                        req.flash('success', 'Registration Successful. You can login now.');
+                        req.flash('success', 'Supervisro Registration Successful. You can login now.');
                         res.redirect('/supervisors/login');
                     }
                 });
@@ -73,8 +67,47 @@ router.post('/register', (req, res) => {
     }
 });
 
-router.get('/studentRecord', (req, res) => {
-    res.render('studentRecord');
+router.get('/login', (req, res) => {
+    res.render('supervisorLogin', {
+        title: 'Supervisor Signup',
+        style: '/css/supervisorLogin.css',
+        script: '/js/supervisorLogin.js'
+    });
+});
+
+router.post('/login', (req, res, next) => {
+
+    passport.authenticate('supervisor', (err, supervisor, info) => {
+        if (err) {
+            return next(err);
+        }
+
+        if (!supervisor) {
+            req.flash('failure', 'Incorrect Username or Password');
+            return res.redirect('/superviors/login');
+        } 
+        req.logIn(supervisor, (err) => {
+            let id = supervisor._id;
+            id = mongoose.Types.ObjectId(id);
+            return res.redirect(`/supervisors/dashboard/${id}`);
+        });
+    })(req, res, next);
+});
+
+router.get('/dashboard/:id', (req, res) => {
+    let id = req.params.id;
+    let query = {_id: id};
+    Supervisor.findOne(query, (err, supervisor) => {
+        if (err) {
+            res.status.send(500).send(err);
+        }
+        res.render('supervisorDashboard', {
+            title: 'Supervisor Dashboard',
+            style: '/css/supervisorDashboard.css',
+            script: '/js/supervisorDashboard.js'
+        });
+
+    });
 });
 
 module.exports = router;

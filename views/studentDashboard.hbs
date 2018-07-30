@@ -1,40 +1,59 @@
-<section id="mainContent">
-    <nav>
-        <ul>
-            <li><a class="links" id="dashboard" href="/students/dashboard/{{id}}">My Dashboard</a></li>
-            <li><a class="links" href="/students/studentRecord/{{id}}">Log Book</a></li>
-            <li><a id="logout" href="#">Logout</a></li>
-        </ul>
+<div class="spinner">
+
+</div>
+
+<div class="overlay">
+    
+</div>
+
+<div id="content">
+    <section id="mainContent">
+        <nav>
+            <ul>
+                <li><a class="links" id="dashboard" href="/students/dashboard/{{id}}">My Dashboard</a></li>
+                <li><a class="links" href="/students/studentRecord/{{id}}">Log Book</a></li>
+                <li><a id="logout" href="/">Logout</a></li>
+            </ul>
         
-    </nav>
-    <div id="welcomeText">Welcome back <span style="color: #ffffff;">{{name}}</span> <span>you logged in at {{time}}</span></div>
+        </nav>
+        <div id="welcomeText">Welcome back <span style="color: #ffffff;">{{name}}</span> <span>you logged in at {{time}}</span></div>
 
-    <section id="mainItems">
-        <div class="items first" id="firstItem">
-            <a href="/students/studentRecord/{{id}}" class="icon-links"><i class="material-icons icons">library_books</i></a>
-            <p>My Logbook</p>
-        </div>
+        <section id="mainItems">
+            <div class="items first" id="firstItem">
+                <a href="/students/studentRecord/{{id}}" class="icon-links"><i class="material-icons icons">library_books</i></a>
+                <p>My Logbook</p>
+            </div>
 
-        <div class="items second" id="secondItem">
-            <i class="material-icons icons">account_box</i>
-            <p>My Profile</p>
-        </div>
+            <div class="items second" id="secondItem">
+                <i class="material-icons icons" id="profile">account_box</i>
+                <p>My Profile</p>
+            </div>
 
-        <div class="items first" id="thirdItem">
-            <i class="material-icons icons">dashboard</i>
-            <p>Dashboard</p>
-        </div>
+            <div class="items first" id="thirdItem">
+                <i class="material-icons icons">dashboard</i>
+                <p>Dashboard</p>
+            </div>
 
-        <div class="items second" id="fourthItem">
-            <i class="material-icons icons">explore</i>
-            <p>explore</p>
-        </div>
+            <div class="items second" id="fourthItem">
+                <i class="material-icons icons">explore</i>
+                <p>explore</p>
+            </div>
+
+            <div id="modal">
+                <div id="modalContent">
+                    <span class="close">x</span>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis iure, dolores nesciunt eligendi vel aut eos iste ut rerum sit aliquid consectetur accusantium officia debitis tempora. Hic quaerat placeat esse perspiciatis accusamus inventore praesentium veritatis exercitationem molestias\
+                         aperiam consequatur maxime sapiente, possimus suscipit eos earum ipsa atque repellat. Laudantium, nemo.
+                    </p>
+                </div>
+            </div>
+        </section>
     </section>
-</section>
 
-<footer>
-    <hr>
-    <br>
-    <br>
-    &copy Student Industrial Work Experience Scheme 2018 - All Rights Reserved
-</footer
+    <footer>
+        <hr>
+        <br>
+        <br>
+        &copy Student Industrial Work Experience Scheme 2018 - All Rights Reserved
+    </footer>
+</div>
