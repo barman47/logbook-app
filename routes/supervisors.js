@@ -77,15 +77,14 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res, next) => {
 
-    passport.authenticate('supervisor', (err, supervisor, info) => {
-        if (err) {
-            return next(err);
-        }
-
+    passport.authenticate('supervisor', (err, supervisor) => {
+        if (err)
+        return next(err);
+        
         if (!supervisor) {
-            req.flash('failure', 'Incorrect Username or Password');
-            return res.redirect('/superviors/login');
-        } 
+            req.flash('failure', 'Incorrect Username or Password')
+            return res.redirect('/supervisors/login');
+        }
         req.logIn(supervisor, (err) => {
             let id = supervisor._id;
             id = mongoose.Types.ObjectId(id);

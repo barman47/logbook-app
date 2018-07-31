@@ -51,7 +51,7 @@ module.exports = (passport) => {
         });
     }));
 
-    function sessionConstructor (userId, userGroup, details) {
+    let sessionConstructor = function (userId, userGroup, details) {
         this.userId = userId;
         this.userroup = userGroup;
         this.details = details;
