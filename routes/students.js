@@ -120,11 +120,61 @@ router.get('/dashboard/:id', (req, res) => {
             title: 'Student Dashboard',
             style: '/css/studentDashboard.css',
             script: '/js/studentDashboard.js',
-            name: student.name,
+            studentName: student.name,
+            regNo: student.regNo,
+            school: student.school,
+            department: student.department,
+            password: student.password,
             id: student._id, 
             time: time
         });
     });
+});
+
+router.put('/dashboard/:id', (req, res) => {
+    let student = {};
+    student.name = req.body.name;
+        student.regNo = req.body.regNo;
+        student.school = req.body.school;
+        student.department = req.body.department;
+        student.password = req.body.password
+    if (student.password === 'empty') {
+        delete student.password;
+        Student.findByIdAndUpdate(req.params.id, student, {new: true}, (err, updatedStudent) => {
+            if (err) {
+                throw err;
+            }
+            if (!updatedStudent) {
+                return console.log('No record found');
+            } else {
+                res.send(updatedStudent);
+            }      
+        });
+    } else {
+        bcrypt.genSalt(10, (err, salt) => {
+            if (err) {
+                return console.log(err);
+            }
+            bcrypt.hash(student.password, salt, (err, hash) => {
+                if (err) {
+                    return console.log(err);
+                }
+                student.password = hash; 
+        
+                Student.findByIdAndUpdate(req.params.id, student, {new: true}, (err, updatedStudent) => {
+                    if (err) {
+                        throw err;
+                    }
+                    if (!updatedStudent) {
+                        return console.log('No record found');
+                    } else {
+                        res.send(updatedStudent);
+                    }      
+                });        
+            });
+        });
+    }
+
 });
 
 router.get('/studentRecord/:id', (req, res) => {

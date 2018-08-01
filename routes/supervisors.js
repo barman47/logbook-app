@@ -3,8 +3,16 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const moment = require('moment');
+
+let time = moment();
+time = time.format('h:mma');
+let date = new moment();
+date =  date.format('Do MMMM, YYYY');
 
 let Supervisor = require('../models/supervisor');
+let Student = require('../models/student');
+let StudentRecord = require('../models/record');
 const path = require('path');
 const publicPath = path.join(__dirname, '../../public/views');
 
@@ -93,6 +101,31 @@ router.post('/login', (req, res, next) => {
     })(req, res, next);
 });
 
+router.get('/studentRecord/:id', (req, res) => {
+    StudentRecord.findById(req.params.id, (err, studentRecord) => {
+        if (err) {
+            throw err;
+        } else {
+            res.render('studentRecord', {
+                title: 'Student e-Logbook',
+                style: '/css/record.css',
+                script: '/js/record.js',
+                name: studentRecord.name,
+                department: studentRecord.department,
+                id: req.params.id,
+                student: true,
+                monday: studentRecord.monday,
+                tuesday: studentRecord.tuesday,
+                wednesday: studentRecord.wednesday,
+                thursday: studentRecord.thursday,
+                friday: studentRecord.friday,
+                time: time,
+                date: date
+            });
+        }
+    });
+});
+
 router.get('/dashboard/:id', (req, res) => {
     let id = req.params.id;
     let query = {_id: id};
@@ -100,10 +133,19 @@ router.get('/dashboard/:id', (req, res) => {
         if (err) {
             res.status.send(500).send(err);
         }
-        res.render('supervisorDashboard', {
-            title: 'Supervisor Dashboard',
-            style: '/css/supervisorDashboard.css',
-            script: '/js/supervisorDashboard.js'
+        StudentRecord.find({}, (err, studentRecord) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.render('supervisorDashboard', {
+                    title: 'Supervisor Dashboard',
+                    style: '/css/supervisorDashboard.css',
+                    script: '/js/supervisorDashboard.js',
+                    record: studentRecord,
+                    url: 'students/studentRecord/',
+                    supervisor: true
+                });
+            }
         });
 
     });

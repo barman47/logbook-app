@@ -16,7 +16,7 @@
             </ul>
         
         </nav>
-        <div id="welcomeText">Welcome back <span style="color: #ffffff;">{{name}}</span> <span>you logged in at {{time}}</span></div>
+        <div id="welcomeText">Welcome back <span style="color: #ffffff;">{{studentName}}</span> <span>you logged in at {{time}}</span></div>
 
         <section id="mainItems">
             <div class="items first" id="firstItem">
@@ -30,49 +30,150 @@
             </div>
 
             <div class="items first" id="thirdItem">
-                <i class="material-icons icons">dashboard</i>
-                <p>Dashboard</p>
+                <i class="material-icons icons" id="about">info_outline</i>
+                <p>About SIWES</p>
             </div>
 
             <div class="items second" id="fourthItem">
-                <i class="material-icons icons">explore</i>
-                <p>explore</p>
+                <i class="material-icons icons" id="locations">room</i>
+                <p>ITF Locations</p>
             </div>
 
             <div id="modal">
                 <section id="modalContent">
-                    <header id="modalHeader">
-                        <h3 id="modalHeaderText"><i class="material-icons profile">person_outline</i>&nbsp;&nbsp;&nbsp;&nbsp;My Profile <i class="material-icons close">close</i></h3>
+                    <header class="modalHeader">
+                        <h3 class="modalHeaderText"><i class="material-icons profile">person_outline</i>&nbsp;&nbsp;&nbsp;&nbsp;My Profile <i class="material-icons close">close</i></h3>
                     </header>
                     <div id="studentInfo">
                         <div id="nameDiv" class="infoSections">
                             <label for="studentName">Name</label><br>
-                            <input value="Mike" type="text" id="studentName" name="studentName" disabled>
+                            <input value="{{studentName}}" type="text" id="studentName" name="studentName" disabled>
                         </div>
                         <div class="infoSections">
                             <label for="regNo">Registration Number</label><br>
-                            <input value="Mike" type="text" id="regNo" name="regNo" disabled>
+                            <input value="{{regNo}}" type="text" id="regNo" name="regNo" disabled>
                         </div>
                         <div class="infoSections">
                             <label for="school">School</label><br>
-                            <input value="Mike" type="text" id="school" name="school" disabled>
+                            <input value="{{school}}" type="text" id="school" name="school" disabled>
                         </div>
                         <div class="infoSections">
                             <label for="department">Department</label><br>
-                            <input value="Mike" type="text" id="department" name="department" disabled>
+                            <input value="{{department}}" type="text" id="department" name="department" disabled>
                         </div>
-                        <div class="infoSections">
+                        <div class="infoSections" id="passwordSection">
                             <label for="password">Password</label><br>
-                            <input value="Mike" type="password" id="studentName" name="password" disabled>
+                            <input value="{{password}}" type="password" id="password" name="password" disabled>
                         </div>
                     </div>
                     <footer id="modalFooter">
                         <button id="editButton">Edit</button>
-                        <button id="saveButton">Save</button>
+                        <button id="saveButton" data-id="{{id}}">Save</button>
                         <button id="cancelButton">Cancel</button>
                     </footer>
                 </section>
             </div>
+
+            <div id="aboutModal">
+                <section id="aboutModalContent">
+                    <header class="modalHeader">
+                        <h3 class="modalHeaderText"><i class="material-icons profile">info_outline</i>&nbsp;&nbsp;&nbsp;&nbsp;About SIWES <i id="aboutModalClose" class="material-icons close">close</i></h3>
+                    </header>
+                    <section id="aboutModalText">
+                        <h2>History of SIWES</h2><br>
+                        <p id="modalParagraph">
+                            The Student Industrial Work Experience Scheme (SIWES) was Establish in 1973 by Industrial Training Fund (ITF) it is a very important program , involving the student, 
+                            University, Industries, it is skill training program design to expose an prepare student of tertiary institution for the industrial work situations the are likely to meet after graduation.
+                        </p><br>
+                        <hr>
+                        <br>
+
+                        <h2>Aims and Objectives of SIWES</h2><br>
+                        <p>The objectives of the student’s industrial work experience scheme [SIWES] are as follows:</p>
+                        <ul class="aboutModalList">
+                            <li>To expose students to work methods and technique in handling equipment and machinery that may not be available in the universities</li>
+                            <li>To prepare students for the work situation they are likely to meet after graduation.</li>
+                            <li>To provide an avenue for Nigerian universities to acquire industrial skills and experience in their course of study.</li>
+                            <li>To provide students with an opportunity to apply their theoretical knowledge in real work situation there by bridging the gap between university work and actual practice.</li>
+                            <li>To make the transition from the university to the world of work easier and thus, enhance students contacts for later job placement.</li>
+                        </ul><br>
+                        <hr>
+                        <br>
+                        <h2>Bodies Involved in the Management of SIWES</h2><br>
+                        <ul class="aboutModalList">
+                            <li>The Federal Government (FG).</li>
+                            <li>Industrial Training Fund (ITF).</li>
+                            <li>National University Commission (NUC).</li>
+                            <li>The institution (universities).</li>
+                        </ul>
+
+                        <br>
+                        <ul class="aboutModalList">
+                            <li>
+                                <span class="orderedListHeaders">The Federal Government</span>
+                                <ol class="aboutModalOrderedList">
+                                    <li>Makes adequate fund available to the Federal Ministry of Industry to fund the scheme.</li>
+                                    <li>Make it mandatory for all Ministries, Companies and Government Parastatal to offer attachment places to students. </li>
+                                    <li>Make it a policy to include a clause in every major contract lasting over six to nine months being awarded for contract to take students on attachment.</li>
+                                </ol>
+                            </li>
+
+                            <br>
+                            <li>
+                                <span class="orderedListHeaders">Industrial Training Fund</span>
+                                <ol class="aboutModalOrderedList">
+                                    <li>Provide logistic materiel needed to administer the scheme.</li>
+                                    <li>Compile lists of employers and available training places for industrial attachment and 	forward such lists to the coordinating Agencies. i.e. NUC, NBTE, NCCE.</li>
+                                    <li>Organize biennial conferences and seminars on SIWES.</li>
+                                </ol>
+                            </li>
+
+                            <br>
+                            <li>
+                                <span class="orderedListHeaders">National University Commission</span>
+                                <ol class="aboutModalOrderedList">
+                                    <li>Establish SIWES coordinating Units.</li>
+                                    <li>Appoint full time coordinators to operate the scheme at agency level.</li>
+                                    <li>Evolve a minimum national guide programme for supervised industrial training activities for approved courses.</li>
+                                </ol>
+                            </li>
+
+                            <br>
+                            <li>
+                                <span class="orderedListHeaders">The Institutions (Universities)</span>
+                                <ol class="aboutModalOrderedList">
+                                    <li>Establish SIWES coordinating units and appoint Department/Faculty SIWES coordinators within the institutions.</li>
+                                    <li>Appoint full-time Industrial Coordinators to operate the scheme at institutional level.</li>
+                                    <li>Prepare and submit Master and placement to the respective coordinating agency and 	ITF.</li>
+                                    <li>Place students on attachment with employee.</li>
+                                    <li>Organize orientation program for students to prepare them for industrial training. ITF representative may be invited to give a talk to the students during the orientation 	programme.</li>
+                                    <li>Work out industrial tailor-made program with the employers based supervisor on the 	National Industrial Training guideline for such course.</li>
+                                    <li>Supervise students on attachment and sign their logbooks. A minimum three visits should be made to the students by the institution's supervisor during the period of attachment.</li>
+                                    <li>Assess student's performance and award grades accordingly.</li>
+                                    <li>Submit completed ITF Form 8 to the ITF at the end of the program.</li>
+                                    <li>Maintain separate account books on the scheme to the ITF after the program.</li>
+                                </ol>
+                            </li>
+                            
+                        </ul>
+                        <br>
+                        <br>
+                        <hr>
+                    </section>
+                </section>
+            </div>
+
+            <div id="itfModal">
+                <section id="itfModalContent">
+                    <header class="modalHeader">
+                        <h3 class="modalHeaderText"><i class="material-icons profile">room</i>&nbsp;&nbsp;&nbsp;&nbsp;ITF Locations <i id="itfModalClose" class="material-icons close">close</i></h3>
+                    </header>
+                    <section id="itfModalText">
+                        <p>ITF Modal</p>    
+                    </section>
+                </section>
+            </div>
+
         </section>
     </section>
 
@@ -80,6 +181,6 @@
         <hr>
         <br>
         <br>
-        &copy Student Industrial Work Experience Scheme 2018 - All Rights Reserved
+        &copy; Student Industrial Work Experience Scheme 2018 - All Rights Reserved
     </footer>
 </div>

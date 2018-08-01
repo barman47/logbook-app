@@ -8,35 +8,17 @@
 <p id="welcomeText">Welcome Mesaage</p>
 <section>
     <p id="listHeader">My Students</p>
+
+    {{#if record}}
         <ul class="studentList">
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-        <li  class="students"><a href="#">Lorem ipsum dolor sit amet.</a></li>
-    </ul>
+            {{#each record}}
+                <li class="students"><a href="/supervisors/studentRecord/{{this._id}}">{{this.name}}</a></li>
+            {{/each}}
+        </ul>
+    {{/if}}
 </section>
 <footer>
-    <hr>
+    <hr width="85%">
     <br>
     <br>
     &copy Student Industrial Work Experience Scheme 2018 - All Rights Reserved

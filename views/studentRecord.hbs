@@ -10,8 +10,8 @@
             <h1>DAILY/WEEKLY RECORD OF ACTIVITIES</h1>
             <nav>
                 <ul>
-                    <li id="homeLink"><a href="/students/dashboard/{{id}}">Dashboard</a></li>
-                    <li id="logout"><a href="/">Log out</a></li>
+                    <li><a id="homeLink" href="/students/dashboard/{{id}}">Dashboard</a></li>
+                    <li><a id="logout" href="/">Log out</a></li>
                 </ul>
             </nav>
             <select id="week" name="week">
@@ -26,7 +26,7 @@
             <div id="studentNameDiv">
                 {{#if student}}
                     {{!-- <label for="studentName" id="studentNameLabel" style="color: #007caf">Name: </label> --}}
-                    <span id="studentName">{{name}}</span><span id="loggedIn">Logged in at {{time}}</span>
+                    Student: <span id="studentName">{{name}}</span>
                 {{/if}}
                 {{#if supervisor}}
                     <span id="supervisorName">Supervisor Logged In at {{time}}</span>

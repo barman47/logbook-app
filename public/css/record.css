@@ -109,16 +109,17 @@ li {
 
 a:link {
     text-decoration: none;
-    color: purple;
+    color: #007caf;
     font-size: 15px;
 }
 
 a:visited {
-    color: brown;
+    color: #007caf;
 }
 
 a:hover {
-    color: #ffa500;
+    color: #ffffff;
+    background-color: #007caf;
 }
 
 a:active {
@@ -135,7 +136,8 @@ a:active {
 }
 
 #logout:hover {
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #007caf;
 }
 div label {
     font-weight: bold;

@@ -14,7 +14,7 @@ const students = require('./routes/students');
 const supervisor = require('./routes/supervisors');
 
 const publicPath = path.join(__dirname, 'public');
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect(config.database, {
     useNewUrlParser: true
