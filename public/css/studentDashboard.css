@@ -380,3 +380,19 @@ footer {
     letter-spacing: 0.2em;
     opacity: 0.8;
 }
+
+@media screen and (max-width: 480px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    #mainItems {
+
+        grid-template-columns: 1fr;
+        grid-column-gap: 1em;
+        grid-row-gap: 1em;
+        grid-auto-rows: minmax(150px, auto);
+    }
+   
+}
+

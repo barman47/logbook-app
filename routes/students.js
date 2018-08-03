@@ -225,4 +225,13 @@ router.put('/studentRecord/:id', (req, res) => {
     });
 });
 
+function ensureAuthenticated (req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    } else {
+        req.flash('failure', 'Please Login');
+        res.redirect('/');
+    }
+}
+
 module.exports = router;

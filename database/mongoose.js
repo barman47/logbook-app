@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
-const uri = 'mongodb://barman47:vicecity47@ds111492.mlab.com:11492/logbookapp';
 
 mongoose.Promise = global.Promise;
-mongoose.connect(uri, {
+// mongoose.connect('mongodb://localhost:27017/logbookApp', {
+//     useNewUrlParser: true
+// });
+
+mongoose.connect('mongodb://barman47:VICEcity@47@ds111492.mlab.com:11492/logbookapp', {
     useNewUrlParser: true
 });
 console.log('Connected to Mongo Database on mongodb://localhost:27017/LogbookApp');
 
 module.exports = {mongoose};
+
