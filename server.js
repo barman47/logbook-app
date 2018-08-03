@@ -20,15 +20,23 @@ mongoose.connect(config.database, {
     useNewUrlParser: true
 });
 
-let db = mongoose.connection;
-
-db.once('open', () => {
-    console.log('Connected to Mongo Database on mongodb://localhost:27017');
+mongoose.connection.on('connected', (err) => {
+    console.log('Connected to database ' + config.database);
 });
 
-db.on('error', (err) => {
-    console.log(err);
+mongoose.connection.on('error', (err) => {
+    console.log('Database Error' + err);
 });
+
+// let db = mongoose.connection;
+
+// db.once('open', () => {
+//     console.log('Connected to Mongo Database on mongodb://localhost:27017');
+// });
+
+// db.on('error', (err) => {
+//     console.log(err);
+// });
 
 const app = express();
 
