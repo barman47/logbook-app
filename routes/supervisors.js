@@ -143,7 +143,9 @@ router.get('/dashboard/:id', (req, res) => {
                     script: '/js/supervisorDashboard.js',
                     record: studentRecord,
                     url: 'students/studentRecord/',
-                    supervisor: true
+                    supervisor: true,
+                    id: id,
+                    name: supervisor.name
                 });
             }
         });

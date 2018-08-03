@@ -1,34 +1,45 @@
-{{#if success_message}}
-    <p class="success"><strong>{{ success_message }}</strong></p>
-{{/if}}
-
-{{#if failure_message}}
-    <p class="failure"><strong>{{ failure_message }}</strong></p>    
-{{/if}}
-
-<section id="background">
-
-</section>
-
-<section>
+<section id="mainContent">
     <header>
-        <h1>Electronic Logbook System for SIWES</h1>
+        <h1>SIWES E-Logbook</h1>
+        <nav>
+            <ul>
+                <li>
+                    <div class="loginDropdown">
+                        Login
+                        <div class="dropDownContent">
+                            <a href="/">Student Login</a>
+                            <a href="/supervisors/login">Supervisor Login</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="registerDropdown">
+                        Register
+                        <div class="dropDownContent" id="registerDropdownContent">
+                            <a href="/students/register">Student</a>
+                            <a href="/supervisors/register">Supervisor</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <nav><a href="/">Student Login</a></nav>
-    <form name="loginForm" method="POST">
-            <p id="formHeader">Supervisor Login</p>
-        <div class="inputSections" id="usernameDiv">
-            <label for="username" >Username</label><br>
-            <input type="text" id="username" name="username" class="inputField" placeholder="Supervisor Username" autofocus><br>
-            <span id="usernameErrorMessage">Please enter your username</span><br>
+    <form action="/supervisors/login" method="POST" name="loginForm">
+        <h2>Supervisor Login</h1>
+        <div class="iconContainer">
+            <i class="material-icons" id="userIcon">person</i>
         </div>
-        <div class="inputSections" id="passwordDiv">
-            <label for="password" >Password</label><br>
-            <input type="password" id="password" name="password" class="inputField" placeholder="Password here"><br>
-            <span id="passwordErrorMessage">Please enter your password</span><br>
+        <div class="inputSections">
+            <label for="username"><strong>Username</strong></label>
+            <input type="text" id="username" name="username" class="inputs" placeholder="username......" autofocus>
         </div>
-        <button name="loginButton" type="submit">Login</button>
-        <p id="registerParagraph">Are you a Supervisor? <a href="register">Register</a></p>
+        <div class="inputSections">
+            <label for="password"><strong>Password</strong></label>
+            <input type="password" id="password" name="password" class="inputs" placeholder="Enter Password...">
+        </div>
+        <div class="inputSections">
+            <button type="submit" name="loginButton">Login</button>
+        </div>
     </form>
 </section>
         

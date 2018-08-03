@@ -350,7 +350,7 @@ h2 {
     font-family: "Segoe UI";
 }
 
-.aboutModalList li {
+.aboutModalList li, .itfModalList li {
     list-style-type: decimal !important;
     margin-left: 40px;
     color: rgba(0, 0, 0, 0.8);

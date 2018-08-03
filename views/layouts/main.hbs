@@ -2,20 +2,42 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="stylesheet" href="{{style}}">
     <link rel="stylesheet" href="/css/google-icons.css">
     <script src="/js/jquery-3.1.1.js"></script>
+    <style>
+        #closeSuccess:hover, #closeFailure:hover {
+            color: #ffa500;
+            cursor: pointer;
+        }
+
+        #closeSuccess, #closeFailure {
+            position: relative;
+            top: 5px;
+            left: 20px;
+        }
+    </style>
 </head>
 <body>
     {{#if success_message}}
-        <p class="success"><strong>{{ success_message }}</strong></p>
+        <p class="success"><strong>{{ success_message }}</strong><span class="material-icons icon" id="closeSuceess">close</span></p>
     {{/if}}
 
     {{#if failure_message}}
-        <p class="failure"><strong>{{ failure_message }}</strong><span class="close">X</span></p>
+        <p class="failure"><strong>{{ failure_message }}</strong><span class="material-icons icon" id="closeFailure">close</span></p>
     {{/if}}
     {{{body}}}
     <script src="{{script}}"></script>
+    <script>
+        $('#closeSuccess').click(function () {
+            $('.success').remove();
+        });
+
+        $('#closeFailure').click(function () {
+            $('.failure').remove();
+        });
+    </script>
 </body>
 </html>

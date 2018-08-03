@@ -33,23 +33,3 @@ form.addEventListener('submit', function (event) {
         usernameErrorMessage.className = 'noErrorMessage';
     }
 }, false);
-
-username.addEventListener('focusout', function () {
-    if (!isEmpty(username)) {
-        username.style.borderColor = 'whitesmoke';
-        usernameErrorMessage.className = 'noErrorMessage';
-    } else {
-        username.style.borderColor = 'orange';
-        usernameErrorMessage.className = 'errorMessage';
-    }
-});
-
-password.addEventListener('focusout', function () {
-    if (!isEmpty(password)) {
-        password.style.borderColor = 'whitesmoke';
-        passwordErrorMessage.className = 'noErrorMessage';
-    } else {
-        password.style.borderColor = 'orange';
-        passwordErrorMessage.className = 'errorMessage';
-    }
-});

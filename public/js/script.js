@@ -34,22 +34,22 @@ form.addEventListener('submit', function (event) {
     }
 }, false);
 
-registrationNumber.addEventListener('focusout', function () {
-    if (!isEmpty(registrationNumber)) {
-        registrationNumber.style.borderColor = 'whitesmoke';
-        regNoErrorMessage.className = 'noErrorMessage';
-    } else {
-        registrationNumber.style.borderColor = 'orange';
-        regNoErrorMessage.className = 'errorMessage';
-    }
+$('#touch').click(function () {
+    $(this).hide();
+    $('.tooltip').hide()
+    $('form').animate({
+        top: "+=1000"
+    }, 1000, "linear", function () {
+        $('#regNo').focus();
+    });
 });
 
-password.addEventListener('focusout', function () {
-    if (!isEmpty(password)) {
-        password.style.borderColor = 'whitesmoke';
-        passwordError.className = 'noErrorMessage';
-    } else {
-        password.style.borderColor = 'orange';
-        passwordError.className = 'errorMessage';
-    }
+$('.tooltiptext').click(function () {
+    $('.tooltip').hide();
+    $('#touch').hide();
+    $('form').animate({
+        top: "+=1000"
+    }, 1000, function () {
+        $('#regNo').focus();
+    });
 });
