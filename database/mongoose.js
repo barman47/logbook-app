@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 //     useNewUrlParser: true
 // });
 
-mongoClient.connect('mongodb://barman47:VICEcity%4047@ds111492.mlab.com:11492/logbookapp', { 
+mongoClient.connect('mongodb://barman47:VICEcity@47@ds111492.mlab.com:11492/logbookapp', { 
     uri_decode_auth: true,
     useNewUrlParser: true 
     }, function(err, db) {
