@@ -1,5 +1,5 @@
 module.exports = {
     // database: 'mongodb://localhost:27017/LogbookApp',
-    database: 'mongodb://barman47:VICEcity47@ds111492.mlab.com:11492/logbookapp',
+    database: 'mongodb://barman:VICEcity47@ds113122.mlab.com:13122/logbookapp',
     secret: 'barman secret'
 };
