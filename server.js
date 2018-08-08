@@ -80,7 +80,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/students', students);
 app.use('/supervisors', supervisor);
 
-app.use(flash());
 app.use((req, res, next) => {
     res.locals.success_message = req.flash('success');
     res.locals.failure_message = req.flash('failure');

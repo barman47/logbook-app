@@ -80,12 +80,12 @@
 
                 <div class="footerSections" id="supervisorCommentSection">
                     <label id="supervisorCommentLabel" class="footerLabels" for="supervisorComment">Comment by Industry Based Supervisor *</label>
-                    <textarea value="{{supervisorComment}}" id="supervisorComment" name="supervisorComment" class="footerInputs" placeholder="Comment here......"></textarea>
+                    <textarea value="{{supervisorComment}}" id="supervisorComment" name="supervisorComment" class="footerInputs" placeholder="Comment here......" {{disabled}}></textarea>
                 </div>
 
                 <div class="footerSections" id="supervisorNameSection">
                     <label for="supervisorName" class="footerLabels">Name *</label>
-                    <input value="{{supervisorName}}" type="text" id="supervisorName" class="footerTextFields footerInputs" name="supervisorName" placeholder="Supervisor name">
+                    <input value="{{supervisorName}}" type="text" id="supervisorName" class="footerTextFields footerInputs" name="supervisorName" placeholder="Supervisor name" {{disabled}}>
                 </div>
 
                 <div class="footerSections" id="dateSection">

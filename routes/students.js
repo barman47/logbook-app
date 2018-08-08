@@ -197,7 +197,8 @@ router.get('/studentRecord/:id', (req, res) => {
                 thursday: studentRecord.thursday,
                 friday: studentRecord.friday,
                 time: time,
-                date: date
+                date: date,
+                disabled: 'disabled'
             });
         }
     });
